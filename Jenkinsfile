@@ -16,9 +16,10 @@ pipeline {
         }
         stage('Deliver') { 
             steps {
-                sh 'sudo sh deliver.sh' 
+                sh "chmod +x -R ${env.WORKSPACE}"
+                sh 'sh deliver.sh' 
                 input message: 'Termino de usar la app? (Click "Proceed" para continuar)' 
-                sh 'sudo sh kill.sh' 
+                sh 'sh kill.sh' 
             }
         }        
     }
