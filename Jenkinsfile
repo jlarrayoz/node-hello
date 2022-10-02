@@ -16,9 +16,9 @@ pipeline {
         }
         stage('Deliver') { 
             steps {
-                sh './deliver.sh' 
+                sh 'sudo sh deliver.sh' 
                 input message: 'Termino de usar la app? (Click "Proceed" para continuar)' 
-                sh './kill.sh' 
+                sh 'sudo sh kill.sh' 
             }
         }        
     }
